@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		688F79782A4CCE3700DEEEED /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688F79772A4CCE3700DEEEED /* History.swift */; };
+		688F797A2A4CCE5400DEEEED /* PaymentRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688F79792A4CCE5400DEEEED /* PaymentRequest.swift */; };
+		688F797C2A4CCE5C00DEEEED /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688F797B2A4CCE5C00DEEEED /* Notifications.swift */; };
+		688F797E2A4CCE6600DEEEED /* Friends.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688F797D2A4CCE6600DEEEED /* Friends.swift */; };
+		688F79802A4CD7D500DEEEED /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688F797F2A4CD7D500DEEEED /* Home.swift */; };
+		688F79822A4CD82100DEEEED /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688F79812A4CD82100DEEEED /* Settings.swift */; };
 		68FC17DB2A4A097F00747D79 /* house_E3App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FC17DA2A4A097F00747D79 /* house_E3App.swift */; };
 		68FC17DD2A4A097F00747D79 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FC17DC2A4A097F00747D79 /* ContentView.swift */; };
 		68FC17DF2A4A098200747D79 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68FC17DE2A4A098200747D79 /* Assets.xcassets */; };
@@ -14,6 +20,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		688F79772A4CCE3700DEEEED /* History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
+		688F79792A4CCE5400DEEEED /* PaymentRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentRequest.swift; sourceTree = "<group>"; };
+		688F797B2A4CCE5C00DEEEED /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
+		688F797D2A4CCE6600DEEEED /* Friends.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friends.swift; sourceTree = "<group>"; };
+		688F797F2A4CD7D500DEEEED /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		688F79812A4CD82100DEEEED /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		68FC17D72A4A097F00747D79 /* house E3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "house E3.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		68FC17DA2A4A097F00747D79 /* house_E3App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = house_E3App.swift; sourceTree = "<group>"; };
 		68FC17DC2A4A097F00747D79 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -53,6 +65,12 @@
 			children = (
 				68FC17DA2A4A097F00747D79 /* house_E3App.swift */,
 				68FC17DC2A4A097F00747D79 /* ContentView.swift */,
+				688F79812A4CD82100DEEEED /* Settings.swift */,
+				688F797F2A4CD7D500DEEEED /* Home.swift */,
+				688F79772A4CCE3700DEEEED /* History.swift */,
+				688F79792A4CCE5400DEEEED /* PaymentRequest.swift */,
+				688F797B2A4CCE5C00DEEEED /* Notifications.swift */,
+				688F797D2A4CCE6600DEEEED /* Friends.swift */,
 				68FC17DE2A4A098200747D79 /* Assets.xcassets */,
 				68FC17E02A4A098200747D79 /* Preview Content */,
 			);
@@ -137,8 +155,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				688F797C2A4CCE5C00DEEEED /* Notifications.swift in Sources */,
+				688F797E2A4CCE6600DEEEED /* Friends.swift in Sources */,
+				688F79822A4CD82100DEEEED /* Settings.swift in Sources */,
 				68FC17DD2A4A097F00747D79 /* ContentView.swift in Sources */,
+				688F797A2A4CCE5400DEEEED /* PaymentRequest.swift in Sources */,
+				688F79782A4CCE3700DEEEED /* History.swift in Sources */,
 				68FC17DB2A4A097F00747D79 /* house_E3App.swift in Sources */,
+				688F79802A4CD7D500DEEEED /* Home.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

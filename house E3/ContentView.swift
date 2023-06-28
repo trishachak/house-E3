@@ -9,16 +9,33 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("go house e3! :D")
-        // changed text from "live laugh love"
-        //added a smiley face
-                .bold()
+        TabView {
+            Home()
+                .tabItem() {
+                    Image(systemName: "phone.fill")
+                    Text("Home")
+            }
+            History()
+                .tabItem() {
+                    Image(systemName: "phone.fill")
+                    Text("History")
+            }
+            PaymentRequest()
+                .tabItem() {
+                    Image(systemName: "phone.fill")
+                    Text("New Payment")
+            }
+            Notifications()
+                .tabItem() {
+                    Image(systemName: "phone.fill")
+                    Text("Notifications")
+            }
+            Friends()
+                .tabItem() {
+                    Image(systemName: "phone.fill")
+                    Text("Friends")
+            }
         }
-        .padding()
     }
 }
 
