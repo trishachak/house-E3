@@ -15,7 +15,7 @@ struct Notifications: View {
                     Spacer()
                     
                     NavigationLink(destination: Settings()) {
-                        Image(systemName: "phone.fill")
+                        Image(systemName: "gearshape")
                     }
                 }
                 .padding(20)
@@ -23,8 +23,12 @@ struct Notifications: View {
                 Text("Notifications")
                 
                 Spacer()
-                
-                Spacer()
+                List {
+                    Text("Alyssa")
+                    Text("Tamika")
+                    Text("Carolyn")
+                    Text("Madison")
+                    }
                 
             }
             

@@ -15,7 +15,7 @@ struct History: View {
                     Spacer()
                     
                     NavigationLink(destination: Settings()) {
-                        Image(systemName: "phone.fill")
+                        Image(systemName: "gearshape")
                     }
                 }
                 .padding(20)
@@ -23,13 +23,16 @@ struct History: View {
                 Text("History")
                 
                 Spacer()
-                
-                Spacer()
-                
+                List {
+                    Text("Ashwini")
+                    Text("Trisha")
+                    Text("Neha")
+                    Text("Deepika")
+                    }
+
             }
-            
-        }
-    }
+                }
+            }
 }
 
 struct History_Previews: PreviewProvider {
