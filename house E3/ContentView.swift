@@ -12,27 +12,27 @@ struct ContentView: View {
         TabView {
             Home()
                 .tabItem() {
-                    Image(systemName: "phone.fill")
-                    Text("Home")
+                    Image(systemName: "house")
+                          Text("Home")
             }
             History()
                 .tabItem() {
-                    Image(systemName: "phone.fill")
+                    Image(systemName: "clock")
                     Text("History")
             }
             PaymentRequest()
                 .tabItem() {
-                    Image(systemName: "phone.fill")
+                    Image(systemName: "plus.circle")
                     Text("New Payment")
             }
             Notifications()
                 .tabItem() {
-                    Image(systemName: "phone.fill")
+                    Image(systemName: "bell.circle")
                     Text("Notifications")
             }
             Friends()
                 .tabItem() {
-                    Image(systemName: "phone.fill")
+                    Image(systemName: "person")
                     Text("Friends")
             }
         }
