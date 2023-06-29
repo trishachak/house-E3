@@ -57,7 +57,8 @@ struct PaymentRequest: View {
                     
                     
                     Button("create payment request") {
-                        requestArray.append(PaymentRequestInfo(name: event, totalMoney: Double(totalPaid) ?? 0, paymentMethod: payment, daysToPay: Int(daysString) ?? 0))
+                        var request = PaymentRequestInfo(name: event, totalMoney: Double(totalPaid) ?? 0, paymentMethod: payment, daysToPay: Int(daysString) ?? 0)
+                        requestArray.append(request)
                     }
                     
                     
