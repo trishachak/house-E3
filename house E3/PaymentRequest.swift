@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct PaymentRequest: View {
+    @State var eventName = ""
+    @State var totalPaid = ""
     var body: some View {
         NavigationStack {
             VStack {
@@ -15,12 +17,44 @@ struct PaymentRequest: View {
                     Spacer()
                     
                     NavigationLink(destination: Settings()) {
-                        Image(systemName: "phone.fill")
+                        Image(systemName: "gearshape")
                     }
                 }
                 .padding(20)
                 
                 Text("Payment Request")
+                
+                Spacer()
+                
+                VStack(spacing: 50) {
+                    TextField("Enter event name", text: $eventName)
+                        .multilineTextAlignment(.leading)
+                    
+                    //friend list goes here
+                    
+                    HStack {
+                        //total amount
+                        VStack {
+                            Text("Total Paid")
+                            TextField("$$", text: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Value@*/.constant("")/*@END_MENU_TOKEN@*/)
+                                .multilineTextAlignment(.center)
+                        }
+                        //per person
+                        VStack {
+                            Text("Per Person")
+                            TextField("$$", text: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Value@*/.constant("")/*@END_MENU_TOKEN@*/)
+                                .multilineTextAlignment(.center)
+                        }
+                    }
+                    
+                    TextField("Preferred Method of Payment", text: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Value@*/.constant("")/*@END_MENU_TOKEN@*/)
+                        .multilineTextAlignment(.leading)
+                    
+                    
+                    
+                    
+                }
+                .padding(50)
                 
                 Spacer()
                 

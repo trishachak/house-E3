@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct Friends: View {
+    @State var friendInfoArray = [FriendInfo]()
+    @State var friendName = ""
+    
     var body: some View {
         NavigationStack {
             VStack {
@@ -15,12 +18,29 @@ struct Friends: View {
                     Spacer()
                     
                     NavigationLink(destination: Settings()) {
-                        Image(systemName: "phone.fill")
+                        Image(systemName: "gearshape")
                     }
                 }
                 .padding(20)
                 
+                Spacer()
+                
                 Text("Friends")
+                
+                let namesArray = printNames(friendList: friendInfoArray)
+                List(namesArray, id: \.self) {
+                    bff in
+                    Text(bff)
+                    
+                }
+                
+                
+                TextField("enter name", text: $friendName)
+                    .multilineTextAlignment(.center)
+                
+                Button("create new friend") {
+                    friendInfoArray.append(FriendInfo(name: friendName))
+                }
                 
                 Spacer()
                 
@@ -36,4 +56,14 @@ struct Friends_Previews: PreviewProvider {
     static var previews: some View {
         Friends()
     }
+}
+
+func printNames(friendList: [FriendInfo]) -> [String] {
+    var friendNames = [String]()
+    
+    for friend in friendList {
+        friendNames.append(friend.getName())
+    }
+    
+    return friendNames
 }
