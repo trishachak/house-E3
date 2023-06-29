@@ -26,6 +26,8 @@ struct Friends: View {
                 Spacer()
                 
                 Text("Friends")
+                    .font(.largeTitle)
+                    .bold()
                 
                 let namesArray = printNames(friendList: friendInfoArray)
                 List(namesArray, id: \.self) {

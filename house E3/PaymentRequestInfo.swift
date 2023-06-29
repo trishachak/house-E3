@@ -1,4 +1,3 @@
-//
 //  PaymentRequestInfo.swift
 //  house E3
 //
@@ -14,6 +13,14 @@ class PaymentRequestInfo {
     var daysToPay = 0
     var friends: [FriendInfo] = []
     
+    
+    init(name: String = "", totalMoney: Double = 0.0, paymentMethod: String = "", daysToPay: Int = 0) {
+        self.name = name
+        self.totalMoney = totalMoney
+        self.paymentMethod = paymentMethod
+        self.daysToPay = daysToPay
+        //self.friends = friends
+    }
     
     //getter methods
     func getName() -> String {

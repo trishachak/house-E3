@@ -1,4 +1,3 @@
-//
 //  PaymentRequest.swift
 //  house E3
 //
@@ -8,8 +7,12 @@
 import SwiftUI
 
 struct PaymentRequest: View {
-    @State var eventName = ""
+    @State var event = ""
     @State var totalPaid = ""
+    @State var payment = ""
+    @State var daysString = ""
+    @State var requestArray = [PaymentRequestInfo]()
+    
     var body: some View {
         NavigationStack {
             VStack {
@@ -27,7 +30,7 @@ struct PaymentRequest: View {
                 Spacer()
                 
                 VStack(spacing: 50) {
-                    TextField("Enter event name", text: $eventName)
+                    TextField("Enter event name", text: $event)
                         .multilineTextAlignment(.leading)
                     
                     //friend list goes here
@@ -36,7 +39,7 @@ struct PaymentRequest: View {
                         //total amount
                         VStack {
                             Text("Total Paid")
-                            TextField("$$", text: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Value@*/.constant("")/*@END_MENU_TOKEN@*/)
+                            TextField("$$", text: $totalPaid)
                                 .multilineTextAlignment(.center)
                         }
                         //per person
@@ -47,14 +50,21 @@ struct PaymentRequest: View {
                         }
                     }
                     
-                    TextField("Preferred Method of Payment", text: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Value@*/.constant("")/*@END_MENU_TOKEN@*/)
+                    TextField("Preferred Method of Payment", text: $payment)
                         .multilineTextAlignment(.leading)
                     
+                    TextField("Days to reimburse", text: $daysString)
                     
+                    
+                    Button("create payment request") {
+                        requestArray.append(PaymentRequestInfo(name: event, totalMoney: Double(totalPaid) ?? 0, paymentMethod: payment, daysToPay: Int(daysString) ?? 0))
+                    }
                     
                     
                 }
                 .padding(50)
+                
+                
                 
                 Spacer()
                 
