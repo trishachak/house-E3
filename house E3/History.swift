@@ -35,10 +35,10 @@ struct History: View {
                         Spacer()
                         
                         List {
-                            Text("Ashwini")
-                            Text("Trisha")
-                            Text("Neha")
-                            Text("Deepika")
+                            Text("🦕 Ashwini")
+                            Text("🦕 Trisha")
+                            Text("🦕 Neha")
+                            Text("🦕 Deepika")
                         }
                         .cornerRadius(15)
                         .padding(20)
