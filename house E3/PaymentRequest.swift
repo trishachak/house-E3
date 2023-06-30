@@ -7,11 +7,17 @@
 import SwiftUI
 
 struct PaymentRequest: View {
+    //textfield info to construct a PaymentRequestInfo object
     @State var event = ""
     @State var totalPaid = ""
     @State var payment = ""
     @State var daysString = ""
-    @State var requestArray = [PaymentRequestInfo]()
+    @State var friendsArray = [FriendInfo]()
+    @State var friendsArrayEntry = ""
+    
+    @State var perPerson = ""
+    
+    @EnvironmentObject var paymentRequestData: PaymentRequestData
     
     var body: some View {
         NavigationStack {
@@ -33,22 +39,28 @@ struct PaymentRequest: View {
                     TextField("Enter event name", text: $event)
                         .multilineTextAlignment(.leading)
                     
-                    //friend list goes here
+                    VStack(alignment: .leading) {
+                        TextField("Enter Friend Name", text: $friendsArrayEntry)
+                        
+                        Button("add friend") {
+                            let bff = FriendInfo(name: friendsArrayEntry)
+                            friendsArray.append(bff)
+                    }
                     
-                    HStack {
+                    }
+                    
+                    VStack {
                         //total amount
-                        VStack {
-                            Text("Total Paid")
+                            Text("Total Paid:")
                             TextField("$$", text: $totalPaid)
                                 .multilineTextAlignment(.center)
-                        }
+                       
                         //per person
-                        VStack {
-                            Text("Per Person")
-                            TextField("$$", text: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Value@*/.constant("")/*@END_MENU_TOKEN@*/)
-                                .multilineTextAlignment(.center)
-                        }
+                            Text("Per Person:")
+                            .padding(3)
+                        Text("$" + divideMoney(total: Double(totalPaid) ?? 0, numPeople: Double(friendsArray.count)))
                     }
+                    .padding(5)
                     
                     TextField("Preferred Method of Payment", text: $payment)
                         .multilineTextAlignment(.leading)
@@ -57,8 +69,10 @@ struct PaymentRequest: View {
                     
                     
                     Button("create payment request") {
-                        var request = PaymentRequestInfo(name: event, totalMoney: Double(totalPaid) ?? 0, paymentMethod: payment, daysToPay: Int(daysString) ?? 0)
-                        requestArray.append(request)
+                        let newRequestInfo = PaymentRequestInfo(name: event, totalMoney: Double(totalPaid) ?? 0, paymentMethod: payment, daysToPay: Int(daysString) ?? 0, friends: friendsArray)
+                        
+                        paymentRequestData.newRequest = newRequestInfo
+                        paymentRequestData.requestArray.append(newRequestInfo)
                     }
                     
                     
@@ -82,3 +96,10 @@ struct PaymentRequest_Previews: PreviewProvider {
         PaymentRequest()
     }
 }
+
+
+func divideMoney(total: Double, numPeople: Double) -> String {
+    return String(total/numPeople)
+}
+
+

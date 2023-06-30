@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
+    let paymentRequestData = PaymentRequestData()
+    
     var body: some View {
         TabView {
             Home()
@@ -25,6 +27,7 @@ struct ContentView: View {
                     Image(systemName: "plus.circle")
                     Text("New Payment")
             }
+                .environmentObject(paymentRequestData)
             Notifications()
                 .tabItem() {
                     Image(systemName: "bell.circle")
@@ -36,6 +39,7 @@ struct ContentView: View {
                     Text("Friends")
             }
         }
+        .environmentObject(paymentRequestData)
     }
 }
 

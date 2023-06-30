@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct Home: View {
+    @EnvironmentObject var paymentRequestData: PaymentRequestData
+    
     var body: some View {
         NavigationStack {
             VStack {
@@ -15,12 +17,27 @@ struct Home: View {
                     Spacer()
                     
                     NavigationLink(destination: Settings()) {
-                        Image(systemName: "phone.fill")
+                        Image(systemName: "gearshape")
                     }
                 }
                 .padding(20)
                 
                 Text("Home")
+                    .font(.largeTitle)
+                    .bold()
+                
+                VStack(alignment: .leading) {
+                    Text("Your Requests")
+                        .bold()
+                    
+                    let eventNames = printEventName(requestList: paymentRequestData.requestArray)
+                    List(eventNames, id: \.self) {
+                        payMeFor in
+                        Text(payMeFor)
+                    }
+                }
+                .padding(30)
+                
                 
                 Spacer()
                 
@@ -34,6 +51,15 @@ struct Home: View {
 
 struct Home_Previews: PreviewProvider {
     static var previews: some View {
-        Home()
+        Home().environmentObject(PaymentRequestData())
     }
+}
+
+func printEventName(requestList: [PaymentRequestInfo]) -> [String] {
+    var payMeList = [String]()
+    
+    for event in requestList {
+        payMeList.append(event.getName())
+    }
+    return payMeList
 }

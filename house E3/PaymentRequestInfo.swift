@@ -13,13 +13,17 @@ class PaymentRequestInfo {
     var daysToPay = 0
     var friends: [FriendInfo] = []
     
+    init(name: String) {
+        self.name = ""
+    }
     
-    init(name: String = "", totalMoney: Double = 0.0, paymentMethod: String = "", daysToPay: Int = 0) {
+    
+    init(name: String = "", totalMoney: Double = 0.0, paymentMethod: String = "", daysToPay: Int = 0, friends: [FriendInfo]) {
         self.name = name
         self.totalMoney = totalMoney
         self.paymentMethod = paymentMethod
         self.daysToPay = daysToPay
-        //self.friends = friends
+        self.friends = friends
     }
     
     //getter methods
