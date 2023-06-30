@@ -10,29 +10,46 @@ import SwiftUI
 struct History: View {
     var body: some View {
         NavigationStack {
-            VStack {
-                HStack {
-                    Spacer()
+            ZStack {
+                Color("Baby Powder")
+                    .ignoresSafeArea()
+                VStack {
+                    HStack {
+                        Spacer()
+                        
+                        NavigationLink(destination: Settings()) {
+                            Image(systemName: "gearshape")
+                        }
+                    }
+                    .padding(20)
                     
-                    NavigationLink(destination: Settings()) {
-                        Image(systemName: "gearshape")
+                    VStack {
+                        Text("History")
+                            .font(.largeTitle)
+                            .bold()
+                            .padding(10)
+                            .foregroundColor(Color("Rich Black"))
+                        
+                        Spacer()
+                        
+                        Spacer()
+                        
+                        List {
+                            Text("Ashwini")
+                            Text("Trisha")
+                            Text("Neha")
+                            Text("Deepika")
+                        }
+                        .cornerRadius(15)
+                        .padding(20)
                     }
-                }
-                .padding(20)
-                
-                Text("History")
-                
-                Spacer()
-                List {
-                    Text("Ashwini")
-                    Text("Trisha")
-                    Text("Neha")
-                    Text("Deepika")
-                    }
-
-            }
+                    .padding(10)
+                    
+                    
                 }
             }
+        }
+    }
 }
 
 struct History_Previews: PreviewProvider {

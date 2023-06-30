@@ -10,28 +10,44 @@ import SwiftUI
 struct Notifications: View {
     var body: some View {
         NavigationStack {
-            VStack {
-                HStack {
-                    Spacer()
+            ZStack {
+                Color("Baby Powder")
+                    .ignoresSafeArea()
+                VStack {
+                    HStack {
+                        Spacer()
+                        
+                        NavigationLink(destination: Settings()) {
+                            Image(systemName: "gearshape")
+                        }
+                    }
+                    .padding(20)
                     
-                    NavigationLink(destination: Settings()) {
-                        Image(systemName: "gearshape")
+                    VStack {
+                        Text("Notifications")
+                            .font(.largeTitle)
+                            .bold()
+                            .padding(10)
+                            .foregroundColor(Color("Rich Black"))
+                        
+                        Spacer()
+                        
+                        Spacer()
+                        
+                        List {
+                            Text("🔔 Alyssa")
+                            Text("🔔 Tamika")
+                            Text("🔔 Madison")
+                            Text("🔔 Carolyn")
+                        }
+                        .cornerRadius(15)
+                        .padding(20)
                     }
+                    .padding(10)
+                    
+                    
                 }
-                .padding(20)
-                
-                Text("Notifications")
-                
-                Spacer()
-                List {
-                    Text("Alyssa")
-                    Text("Tamika")
-                    Text("Carolyn")
-                    Text("Madison")
-                    }
-                
             }
-            
         }
     }
 }

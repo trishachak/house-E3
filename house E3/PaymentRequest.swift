@@ -21,70 +21,82 @@ struct PaymentRequest: View {
     
     var body: some View {
         NavigationStack {
-            VStack {
-                HStack {
+            ZStack {
+                Color("Baby Powder")
+                    .ignoresSafeArea()
+                VStack {
+                    HStack {
+                        Spacer()
+                        
+                        NavigationLink(destination: Settings()) {
+                            Image(systemName: "gearshape")
+                        }
+                    }
+                    .padding(20)
+                    
+                    Text("Payment Request")
+                        .font(.largeTitle)
+                        .bold()
+                        .foregroundColor(Color("Rich Black"))
+                    
                     Spacer()
                     
-                    NavigationLink(destination: Settings()) {
-                        Image(systemName: "gearshape")
-                    }
-                }
-                .padding(20)
-                
-                Text("Payment Request")
-                
-                Spacer()
-                
-                VStack(spacing: 50) {
-                    TextField("Enter event name", text: $event)
-                        .multilineTextAlignment(.leading)
-                    
-                    VStack(alignment: .leading) {
-                        TextField("Enter Friend Name", text: $friendsArrayEntry)
+                    VStack(spacing: 50) {
+                        TextField("Enter Event Name", text: $event)
+                            .multilineTextAlignment(.leading)
                         
-                        Button("add friend") {
-                            let bff = FriendInfo(name: friendsArrayEntry)
-                            friendsArray.append(bff)
-                    }
-                    
-                    }
-                    
-                    VStack {
-                        //total amount
-                            Text("Total Paid:")
-                            TextField("$$", text: $totalPaid)
-                                .multilineTextAlignment(.center)
-                       
-                        //per person
-                            Text("Per Person:")
-                            .padding(3)
-                        Text("$" + divideMoney(total: Double(totalPaid) ?? 0, numPeople: Double(friendsArray.count)))
-                    }
-                    .padding(5)
-                    
-                    TextField("Preferred Method of Payment", text: $payment)
-                        .multilineTextAlignment(.leading)
-                    
-                    TextField("Days to reimburse", text: $daysString)
-                    
-                    
-                    Button("create payment request") {
-                        let newRequestInfo = PaymentRequestInfo(name: event, totalMoney: Double(totalPaid) ?? 0, paymentMethod: payment, daysToPay: Int(daysString) ?? 0, friends: friendsArray)
+                        HStack() {
+                            TextField("Enter Friend Name", text: $friendsArrayEntry)
+                            
+                            Button("add") {
+                                let bff = FriendInfo(name: friendsArrayEntry)
+                                friendsArray.append(bff)
+                            }
+                            .buttonStyle(.borderedProminent)
+                            .tint(Color("Indigo Dye"))
                         
-                        paymentRequestData.newRequest = newRequestInfo
-                        paymentRequestData.requestArray.append(newRequestInfo)
+                        }
+                        
+                        VStack {
+                            //total amount
+                                Text("Total Paid:")
+                                TextField("$$", text: $totalPaid)
+                                    .multilineTextAlignment(.center)
+                           
+                            //per person
+                                Text("Per Person:")
+                                .padding(3)
+                            Text("$" + divideMoney(total: Double(totalPaid) ?? 0, numPeople: Double(friendsArray.count)))
+                        }
+                        .padding(5)
+                        
+                        TextField("Preferred Method of Payment", text: $payment)
+                            .multilineTextAlignment(.leading)
+                        
+                        TextField("Days to Reimburse", text: $daysString)
+                        
+                        
+                        Button("Create Payment Request") {
+                            let newRequestInfo = PaymentRequestInfo(name: event, totalMoney: Double(totalPaid) ?? 0, paymentMethod: payment, daysToPay: Int(daysString) ?? 0, friends: friendsArray)
+                            
+                            paymentRequestData.newRequest = newRequestInfo
+                            paymentRequestData.requestArray.append(newRequestInfo)
+                        }
+                        .buttonStyle(.borderedProminent)
+                        .bold()
+                        .tint(Color("Indigo Dye"))
+                        
+                        
                     }
+                    .padding(50)
                     
+                    
+                    
+                    Spacer()
+                    
+                    Spacer()
                     
                 }
-                .padding(50)
-                
-                
-                
-                Spacer()
-                
-                Spacer()
-                
             }
             
         }

@@ -13,41 +13,51 @@ struct Friends: View {
     
     var body: some View {
         NavigationStack {
-            VStack {
-                HStack {
+            ZStack {
+                Color("Baby Powder")
+                    .ignoresSafeArea()
+                VStack {
+                    HStack {
+                        Spacer()
+                        
+                        NavigationLink(destination: Settings()) {
+                            Image(systemName: "gearshape")
+                        }
+                    }
+                    .padding(20)
+                    
                     Spacer()
                     
-                    NavigationLink(destination: Settings()) {
-                        Image(systemName: "gearshape")
+                    VStack {
+                        Text("Friends")
+                            .font(.largeTitle)
+                            .bold()
+                            .foregroundColor(Color("Rich Black"))
+                        
+                        let namesArray = printNames(friendList: friendInfoArray)
+                        List(namesArray, id: \.self) {
+                            bff in
+                            Text("🩵 " + bff)
+                            
+                        }
+                        .cornerRadius(15)
                     }
-                }
-                .padding(20)
-                
-                Spacer()
-                
-                Text("Friends")
-                    .font(.largeTitle)
-                    .bold()
-                
-                let namesArray = printNames(friendList: friendInfoArray)
-                List(namesArray, id: \.self) {
-                    bff in
-                    Text(bff)
+                    .padding(30)
+                    
+                    TextField("Enter Name", text: $friendName)
+                        .multilineTextAlignment(.center)
+                    
+                    Button("Create New Friend") {
+                        friendInfoArray.append(FriendInfo(name: friendName))
+                    }
+                    .buttonStyle(.borderedProminent)
+                    .tint(Color("Indigo Dye"))
+                    
+                    Spacer()
+                    
+                    Spacer()
                     
                 }
-                
-                
-                TextField("enter name", text: $friendName)
-                    .multilineTextAlignment(.center)
-                
-                Button("create new friend") {
-                    friendInfoArray.append(FriendInfo(name: friendName))
-                }
-                
-                Spacer()
-                
-                Spacer()
-                
             }
             
         }

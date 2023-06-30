@@ -12,39 +12,45 @@ struct Home: View {
     
     var body: some View {
         NavigationStack {
-            VStack {
-                HStack {
+            ZStack {
+                Color("Baby Powder")
+                    .ignoresSafeArea()
+                VStack {
+                    HStack {
+                        Spacer()
+                        
+                        NavigationLink(destination: Settings()) {
+                            Image(systemName: "gearshape")
+                        }
+                    }
+                    .padding(20)
+                    
+                    Text("Home")
+                        .font(.largeTitle)
+                        .bold()
+                        .foregroundColor(Color("Rich Black"))
+                    
+                    VStack(alignment: .leading) {
+                        Text("Your Requests")
+                            .bold()
+                        
+                        let eventNames = printEventName(requestList: paymentRequestData.requestArray)
+                        List(eventNames, id: \.self) {
+                            payMeFor in
+                            Text(payMeFor)
+                        }
+                        .cornerRadius(15)
+                    }
+                    .padding(30)
+                    
+
+                    
                     Spacer()
                     
-                    NavigationLink(destination: Settings()) {
-                        Image(systemName: "gearshape")
-                    }
-                }
-                .padding(20)
-                
-                Text("Home")
-                    .font(.largeTitle)
-                    .bold()
-                
-                VStack(alignment: .leading) {
-                    Text("Your Requests")
-                        .bold()
+                    Spacer()
                     
-                    let eventNames = printEventName(requestList: paymentRequestData.requestArray)
-                    List(eventNames, id: \.self) {
-                        payMeFor in
-                        Text(payMeFor)
-                    }
                 }
-                .padding(30)
-                
-                
-                Spacer()
-                
-                Spacer()
-                
             }
-            
         }
     }
 }
